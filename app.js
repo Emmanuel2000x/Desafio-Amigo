@@ -7,7 +7,6 @@ function agregarAmigo(){
         return false;
     } else{
         friends.push(newFriend);
-        console.log(friends),
         clearBox();
     }
     lista = document.getElementById('listaAmigos');
@@ -20,6 +19,19 @@ function generarLista(name){
     let li = document.createElement("li");
     li.innerText = name;
     lista.appendChild(li);
+}
+
+function sorteo(){
+    //Generacion aleatoria del indice del vector de amigos
+    //Se revisa que el array no este vacio
+    if (friends.length){
+        let index = Math.floor(Math.random()*friends.length);
+        let friendChoose = friends[index];
+        let result = document.getElementById('resultado');
+        result.innerHTML = friendChoose;
+    } else {
+        alert("No se ha agregado ningun amigo");
+    }
 }
 
 function clearBox(){
